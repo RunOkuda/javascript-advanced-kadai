@@ -116,8 +116,8 @@ const timer = () => {
     count.textContent = time;
     // カウントが0になったらタイマーを停止する
     if (time <= 0) {
-      clearInterval(id);
       gameOver(id);
+      untypedfield.textContent = 'タイムアップ！';
     }
   }, 1000);
 };
