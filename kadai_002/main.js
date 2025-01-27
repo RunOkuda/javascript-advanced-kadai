@@ -97,15 +97,19 @@ const timer = () => {
     // カウントが0になったらタイマーを停止する
     if (time <= 0) {
       clearInterval(id);
-      untypedfield.textContent = 'タイムアップ！';
-      setTimeout(gameOver, 1000);
+      gameOver();
     }
   }, 1000);
 };
 
 // ゲームを終了
 const gameOver = () => {
-  const result = confirm(rankCheck(score));
+  typedfield.textContent = "";
+  untypedfield.textContent = 'タイムアップ！';
+  setTimeout(() => {
+    const result = confirm(rankCheck(score));
+  }, 10);
+
 
   // OKボタンをクリックされたらリロードする
   if (result == true) {
