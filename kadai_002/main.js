@@ -108,13 +108,14 @@ const gameOver = () => {
   untypedfield.textContent = 'タイムアップ！';
   setTimeout(() => {
     const result = confirm(rankCheck(score));
+
+    // OKボタンをクリックされたらリロードする
+    if (result == true) {
+      window.location.reload();
+    } else {
+      untypedfield.textContent = 'Thank you for playing!';
+    }
   }, 10);
-
-
-  // OKボタンをクリックされたらリロードする
-  if (result == true) {
-    window.location.reload();
-  }
 };
 
 // ゲームスタート時の処理
